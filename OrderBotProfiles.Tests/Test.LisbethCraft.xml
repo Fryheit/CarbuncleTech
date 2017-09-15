@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+    <Name>Test LisbethCraftBehavior</Name>
+    <Order>
+        <LisbethCraft>
+            <LisbethOrders>
+                <!-- Generally all properties you find in Lisbeth's JSON file should be available as XML properties -->
+                <!-- here. So you can specify and change Food, Manual and other attributes; although this is most   -->
+                <!-- likely not needed in a majority of scenarios.                                                  -->
+                <!-- A full list of available attributes is available from Behaviors/Objects/LisbethOrder.cs        -->
+                
+                <!-- Specify an invalid item, should get dropped from orderlist -->
+                <LisbethOrder Item="99999"/>
+                
+                <!-- Specify an item without an amount, should default to 1 -->
+                <LisbethOrder Item="3028"/>
+
+                <!-- Specify an item without a job, first applicable job should be chosen -->
+                <LisbethOrder Item="3028" Amount="1"/>
+                
+                <!-- Specify an item with a job and an explicit amount -->
+                <LisbethOrder Item="3319" Type="Leatherworker" Amount="1"/>
+
+                <!-- Make the item collectable -->
+                <LisbethOrder Item="18260" Amount="1" Collectable="true" />
+            </LisbethOrders>
+        </LisbethCraft>
+    </Order>
+</Profile>
