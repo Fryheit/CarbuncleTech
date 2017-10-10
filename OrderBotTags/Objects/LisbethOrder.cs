@@ -1,4 +1,4 @@
-﻿namespace CarbuncleTech.Behaviors.Objects
+﻿namespace CarbuncleTech.OrderBotTags.Objects
 {
     using Clio.XmlEngine;
     using Newtonsoft.Json;

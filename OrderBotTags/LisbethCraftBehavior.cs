@@ -1,4 +1,4 @@
-﻿namespace CarbuncleTech.Behaviors
+﻿namespace CarbuncleTech.OrderBotTags
 {
     using System;
     using System.Collections.Generic;
