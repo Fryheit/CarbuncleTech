@@ -1,5 +1,9 @@
 ﻿namespace CarbuncleTech.OrderBotTags.Objects
 {
+    using System;
+    using Clio.Utilities;
+    using ff14bot;
+    using ff14bot.Helpers;
     using Clio.XmlEngine;
     using Newtonsoft.Json;
     
@@ -48,6 +52,11 @@
         [XmlAttribute("Medicine"), JsonProperty("Medicine")]
         public uint Medicine { get; set; }
 
+        [XmlAttribute("Condition")]
+        public string Condition { get; set; }
+        
+        private Func<bool> Conditional { get; set; }
+        
         public LisbethOrder()
         {
             Initialize();
@@ -72,6 +81,26 @@
             Enabled = true;
             Manual = 0;
             Medicine = 0;
+        }
+
+        internal bool GetConditionExec()
+        {
+            bool conditional;
+            try
+            {
+                if (Conditional == null)
+                {
+                    Conditional = ScriptManager.GetCondition(Condition);
+                }
+                conditional = Conditional();
+            }
+            catch (Exception exception)
+            {
+                Logging.WriteDiagnostic(ScriptManager.FormatSyntaxErrorException(exception));
+                TreeRoot.Stop(@"GetConditionExec");
+                throw;
+            }
+            return conditional;
         }
     }
 }

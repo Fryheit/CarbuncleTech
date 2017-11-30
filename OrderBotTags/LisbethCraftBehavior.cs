@@ -120,6 +120,9 @@
             
             foreach (var order in listToProcess)
             {
+                if (!order.GetConditionExec())
+                    continue;
+                    
                 var recipe = _recipeJobList.FirstOrDefault(r => r.Item == order.Item);
                 if (recipe != null)
                 {
