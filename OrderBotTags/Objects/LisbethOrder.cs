@@ -81,6 +81,7 @@
             Enabled = true;
             Manual = 0;
             Medicine = 0;
+            Condition = "";
         }
 
         internal bool GetConditionExec()
