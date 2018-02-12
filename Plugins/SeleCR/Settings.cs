@@ -6,7 +6,7 @@
     using ff14bot.Enums;
     using ff14bot.Helpers;
     using Newtonsoft.Json;
-    
+
     public class Settings : JsonSettings
     {
         [Setting]
@@ -84,7 +84,7 @@
 
         [JsonIgnore]
         private static Settings _instance;
-        
+
         public static Settings Instance => _instance ?? (_instance = new Settings());
 
         public string SelectRoutine()
@@ -108,54 +108,57 @@
 
                 case ClassJobType.Arcanist:
                     return ArcanistRoutine;
-                    
+
                 case ClassJobType.Archer:
                 case ClassJobType.Bard:
                     return BardRoutine;
-                    
+
                 case ClassJobType.Astrologian:
                     return AstrologianRoutine;
-                    
+
                 case ClassJobType.Thaumaturge:
                 case ClassJobType.BlackMage:
                     return BlackMageRoutine;
-                    
+
                 case ClassJobType.Conjurer:
                 case ClassJobType.WhiteMage:
                     return WhiteMageRoutine;
-                    
+
                 case ClassJobType.DarkKnight:
                     return DarkKnightRoutine;
-                    
+
                 case ClassJobType.Lancer:
                 case ClassJobType.Dragoon:
                     return DragoonRoutine;
-                
+
                 case ClassJobType.Gladiator:
                 case ClassJobType.Paladin:
                     return PaladinRoutine;
-                    
+
                 case ClassJobType.Machinist:
                     return MachinistRoutine;
-                    
+
                 case ClassJobType.Marauder:
                 case ClassJobType.Warrior:
                     return WarriorRoutine;
-                    
+
                 case ClassJobType.Pugilist:
                 case ClassJobType.Monk:
                     return MonkRoutine;
-                    
+
                 case ClassJobType.Rogue:
                 case ClassJobType.Ninja:
                     return NinjaRoutine;
-                    
+
                 case ClassJobType.RedMage:
                     return RedMageRoutine;
-                    
+
                 case ClassJobType.Samurai:
                     return SamuraiRoutine;
-                    
+
+                case ClassJobType.Summoner:
+                    return SummonerRoutine;
+
                 default:
                     return "";
             }
