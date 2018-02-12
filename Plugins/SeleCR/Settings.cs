@@ -156,6 +156,9 @@
                 case ClassJobType.Samurai:
                     return SamuraiRoutine;
 
+                case ClassJobType.Scholar:
+                    return ScholarRoutine;
+
                 case ClassJobType.Summoner:
                     return SummonerRoutine;
 
