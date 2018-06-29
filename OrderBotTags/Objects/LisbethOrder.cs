@@ -6,7 +6,7 @@
     using ff14bot.Helpers;
     using Clio.XmlEngine;
     using Newtonsoft.Json;
-    
+
     /// <summary>
     /// A single order within the Lisbeth crafting botbase.
     /// </summary>
@@ -54,9 +54,9 @@
 
         [XmlAttribute("Condition")]
         public string Condition { get; set; }
-        
+
         private Func<bool> Conditional { get; set; }
-        
+
         public LisbethOrder()
         {
             Initialize();
@@ -81,7 +81,7 @@
             Enabled = true;
             Manual = 0;
             Medicine = 0;
-            Condition = "";
+            Condition = "1 == 1";
         }
 
         internal bool GetConditionExec()

@@ -3,11 +3,12 @@
     using System;
     using System.Linq;
     using System.Windows.Media;
+    using Clio.Utilities.Helpers;
     using Common;
     using ff14bot;
     using ff14bot.AClasses;
     using ff14bot.Managers;
-    
+
     public class SeleCR : BotPlugin
     {
         #region Plugin Metadata
@@ -20,13 +21,15 @@
         #endregion
 
         private SettingsWindow _settingsWindow;
-        private readonly Color LogColor = Color.FromRgb(215, 40, 200); 
-        
+        private readonly Color LogColor = Color.FromRgb(215, 40, 200);
+        private bool _inPvpArea;
+        private WaitTimer _pulseTimer;
+
         public override void OnButtonPress()
         {
             if (_settingsWindow == null || _settingsWindow.IsDisposed)
             {
-                _settingsWindow = new SettingsWindow(); 
+                _settingsWindow = new SettingsWindow();
                 _settingsWindow.Show();
             }
             else
@@ -37,7 +40,14 @@
 
         public override void OnPulse()
         {
-            // NOPE.
+            if (_pulseTimer.IsFinished && _inPvpArea != WorldManager.InPvP)
+            {
+                _inPvpArea = WorldManager.InPvP;
+                _pulseTimer.Reset();
+
+                RoutineManager.PreferedRoutine = "";
+                RoutineManager.PickRoutine();
+            }
         }
 
         /// <summary>
@@ -52,7 +62,7 @@
             // needs to be checked here.
             if (!PluginManager.GetEnabledPlugins().Contains("SeleCR"))
                 return;
-            
+
             RoutineManager.PreferedRoutine = Settings.Instance.SelectRoutine();
 
             Logger.Log(Name, $"Automatically selected \"{RoutineManager.PreferedRoutine}\" as routine for {Core.Me.CurrentJob}.", LogColor);
@@ -104,9 +114,10 @@
         /// </summary>
         public override void OnInitialize()
         {
+            _pulseTimer = new WaitTimer(new TimeSpan(0, 0, 0, 1));
             HandleInit();
-        }        
-        
+        }
+
         public override void OnShutdown()
         {
             HandleShutdown();
