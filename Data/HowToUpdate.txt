@@ -1,6 +1,0 @@
-CarbuncleTech uses the JSON output provided by the xivdb API.
-
-To update, simply save the contents of each call to their respective JSON file.
-
-Recipes.json:
-https://api.xivdb.com/recipe?columns=item,classjob

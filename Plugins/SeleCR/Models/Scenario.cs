@@ -72,6 +72,18 @@ namespace CarbuncleTech.Plugins.SeleCR.Models
         [DefaultValue("")]
         public string SamuraiRoutine { get; set; }
 
+        [Setting]
+        [DefaultValue("")]
+        public string BlueMageRoutine { get; set; }
+
+        [Setting]
+        [DefaultValue("")]
+        public string DancerRoutine { get; set; }
+
+        [Setting]
+        [DefaultValue("")]
+        public string GunbreakerRoutine { get; set; }
+
 		public Scenario()
 		{
 

@@ -21,10 +21,14 @@ namespace CarbuncleTech.Plugins.SeleCR
             picBardPVP.ImageLocation = GetImageLocation("Bard.png");
             picBlackMagePVE.ImageLocation = GetImageLocation("BlackMage.png");
             picBlackMagePVP.ImageLocation = GetImageLocation("BlackMage.png");
+            picDancerPVE.ImageLocation = GetImageLocation("Dancer.png");
+            picDancerPVP.ImageLocation = GetImageLocation("Dancer.png");
             picDarkKnightPVE.ImageLocation = GetImageLocation("DarkKnight.png");
             picDarkKnightPVP.ImageLocation = GetImageLocation("DarkKnight.png");
             picDragoonPVE.ImageLocation = GetImageLocation("Dragoon.png");
             picDragoonPVP.ImageLocation = GetImageLocation("Dragoon.png");
+            picGunbreakerPVE.ImageLocation = GetImageLocation("Gunbreaker.png");
+            picGunbreakerPVP.ImageLocation = GetImageLocation("Gunbreaker.png");
             picMachinistPVE.ImageLocation = GetImageLocation("Machinist.png");
             picMachinistPVP.ImageLocation = GetImageLocation("Machinist.png");
             picMonkPVE.ImageLocation = GetImageLocation("Monk.png");
@@ -46,6 +50,7 @@ namespace CarbuncleTech.Plugins.SeleCR
             picWhiteMagePVE.ImageLocation = GetImageLocation("WhiteMage.png");
             picWhiteMagePVP.ImageLocation = GetImageLocation("WhiteMage.png");
             picMinerPVE.ImageLocation = GetImageLocation("Miner.png");
+            picBlueMagePVE.ImageLocation = GetImageLocation("BlueMage.png");
 
             string[] routines = PopulateRoutines();
             cmbArcanistPVE.Items.AddRange(routines);
@@ -56,10 +61,14 @@ namespace CarbuncleTech.Plugins.SeleCR
             cmbBardPVP.Items.AddRange(routines);
             cmbBlackMagePVE.Items.AddRange(routines);
             cmbBlackMagePVP.Items.AddRange(routines);
+            cmbDancerPVE.Items.AddRange(routines);
+            cmbDancerPVP.Items.AddRange(routines);
             cmbDarkKnightPVE.Items.AddRange(routines);
             cmbDarkKnightPVP.Items.AddRange(routines);
             cmbDragoonPVE.Items.AddRange(routines);
             cmbDragoonPVP.Items.AddRange(routines);
+            cmbGunbreakerPVE.Items.AddRange(routines);
+            cmbGunbreakerPVP.Items.AddRange(routines);
             cmbMachinistPVE.Items.AddRange(routines);
             cmbMachinistPVP.Items.AddRange(routines);
             cmbMonkPVE.Items.AddRange(routines);
@@ -81,6 +90,7 @@ namespace CarbuncleTech.Plugins.SeleCR
             cmbWhiteMagePVE.Items.AddRange(routines);
             cmbWhiteMagePVP.Items.AddRange(routines);
             cmbNonBattlePVE.Items.AddRange(routines);
+            cmbBlueMagePVE.Items.AddRange(routines);
         }
 
         private string GetImageLocation(string fileName)
@@ -110,8 +120,10 @@ namespace CarbuncleTech.Plugins.SeleCR
             cmbAstrologianPVE.Text = Settings.Instance.Pve.AstrologianRoutine;
             cmbBardPVE.Text        = Settings.Instance.Pve.BardRoutine;
             cmbBlackMagePVE.Text   = Settings.Instance.Pve.BlackMageRoutine;
+            cmbDancerPVE.Text      = Settings.Instance.Pve.DancerRoutine;
             cmbDarkKnightPVE.Text  = Settings.Instance.Pve.DarkKnightRoutine;
             cmbDragoonPVE.Text     = Settings.Instance.Pve.DragoonRoutine;
+            cmbGunbreakerPVE.Text  = Settings.Instance.Pve.GunbreakerRoutine;
             cmbMachinistPVE.Text   = Settings.Instance.Pve.MachinistRoutine;
             cmbMonkPVE.Text        = Settings.Instance.Pve.MonkRoutine;
             cmbNinjaPVE.Text       = Settings.Instance.Pve.NinjaRoutine;
@@ -123,6 +135,7 @@ namespace CarbuncleTech.Plugins.SeleCR
             cmbWhiteMagePVE.Text   = Settings.Instance.Pve.WhiteMageRoutine;
             cmbWarriorPVE.Text     = Settings.Instance.Pve.WarriorRoutine;
             cmbNonBattlePVE.Text   = Settings.Instance.HandRoutine;
+            cmbBlueMagePVE.Text    = Settings.Instance.Pve.BlueMageRoutine;
             chkEnableInPve.Checked = Settings.Instance.AutoSelectPve;
 
         	/* Scenario PVP */
@@ -130,8 +143,10 @@ namespace CarbuncleTech.Plugins.SeleCR
             cmbAstrologianPVP.Text = Settings.Instance.Pvp.AstrologianRoutine;
             cmbBardPVP.Text        = Settings.Instance.Pvp.BardRoutine;
             cmbBlackMagePVP.Text   = Settings.Instance.Pvp.BlackMageRoutine;
+            cmbDancerPVP.Text      = Settings.Instance.Pvp.DancerRoutine;
             cmbDarkKnightPVP.Text  = Settings.Instance.Pvp.DarkKnightRoutine;
             cmbDragoonPVP.Text     = Settings.Instance.Pvp.DragoonRoutine;
+            cmbGunbreakerPVP.Text  = Settings.Instance.Pvp.GunbreakerRoutine;
             cmbMachinistPVP.Text   = Settings.Instance.Pvp.MachinistRoutine;
             cmbMonkPVP.Text        = Settings.Instance.Pvp.MonkRoutine;
             cmbNinjaPVP.Text       = Settings.Instance.Pvp.NinjaRoutine;
@@ -175,6 +190,13 @@ namespace CarbuncleTech.Plugins.SeleCR
             if(sender == cmbBlackMagePVP)
                 Settings.Instance.Pvp.BlackMageRoutine = cmbBlackMagePVP.Text;
 
+            // Dancer
+            if(sender == cmbDancerPVE)
+                Settings.Instance.Pve.DancerRoutine = cmbDancerPVE.Text;
+
+            if(sender == cmbDancerPVP)
+                Settings.Instance.Pvp.DancerRoutine = cmbDancerPVP.Text;
+
             // Dark Knight
             if(sender == cmbDarkKnightPVE)
                 Settings.Instance.Pve.DarkKnightRoutine = cmbDarkKnightPVE.Text;
@@ -188,6 +210,13 @@ namespace CarbuncleTech.Plugins.SeleCR
 
             if(sender == cmbDragoonPVP)
                 Settings.Instance.Pvp.DragoonRoutine = cmbDragoonPVP.Text;
+
+            // Gunbreaker
+            if(sender == cmbGunbreakerPVE)
+                Settings.Instance.Pve.GunbreakerRoutine = cmbGunbreakerPVE.Text;
+
+            if(sender == cmbGunbreakerPVP)
+                Settings.Instance.Pvp.GunbreakerRoutine = cmbGunbreakerPVP.Text;
 
             // Machinist
             if(sender == cmbMachinistPVE)
@@ -262,6 +291,10 @@ namespace CarbuncleTech.Plugins.SeleCR
             // Non battle
             if(sender == cmbNonBattlePVE)
                 Settings.Instance.HandRoutine = cmbNonBattlePVE.Text;
+
+            // Blue Mage
+            if (sender == cmbBlueMagePVE)
+                Settings.Instance.Pve.BlueMageRoutine = cmbBlueMagePVE.Text;
 
             if(sender == chkEnableInPve)
             	Settings.Instance.AutoSelectPve = chkEnableInPve.Checked;

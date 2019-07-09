@@ -376,6 +376,47 @@
                     }
                     break;
 
+                case ClassJobType.BlueMage:
+                    return Pve.BlueMageRoutine;
+
+                case ClassJobType.Dancer:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.DancerRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.DancerRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.DancerRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.DancerRoutine;
+                    }
+                    break;
+
+                case ClassJobType.Gunbreaker:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.GunbreakerRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.GunbreakerRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.GunbreakerRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.GunbreakerRoutine;
+                    }
+                    break;
+
                 default:
                     return "";
             }
