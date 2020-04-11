@@ -7,7 +7,14 @@
 
     public class GameTitlebar : BotPlugin
     {
+#if RB_CN
+        private const string OriginalTitle = @"最终幻想XIV";
+        public override string Name => @"游戏标题自定义";
+#else
         private const string OriginalTitle = @"FINAL FANTASY XIV";
+        public override string Name => @"Custom Game Titlebar";
+#endif
+
         private const uint WM_SETTEXT = 0x000C;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
@@ -15,7 +22,6 @@
 
         public override string Author => @"Freiheit";
         public override Version Version => new Version(0, 0, 0, 1);
-        public override string Name => @"Custom Game Titlebar";
 
         private string _characterName = string.Empty;
         private uint _ticks;
