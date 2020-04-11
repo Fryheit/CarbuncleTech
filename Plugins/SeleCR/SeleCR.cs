@@ -23,7 +23,6 @@
 
         public override string Author => "Freiheit";
         public override Version Version => new Version(0, 0, 0, 1);
-        public override string Name => "SeleCR";
         public override string Description => "Automatically select a combat routine";
         public override bool WantButton => true;
         #endregion
