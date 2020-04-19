@@ -55,6 +55,10 @@
                 var xPathNavigator = xPathDocument.CreateNavigator();
 
                 var structAddressStr = xPathNavigator.SelectSingleNode(@"/Root/DX11/StructureAddress")?.Value;
+
+#if RB_CN
+                structAddressStr = "1BF9B20";
+#endif
                 var zoomMaxStr = xPathNavigator.SelectSingleNode(@"/Root/DX11/ZoomMax")?.Value;
 
                 _structAddress = Convert.ToInt32(structAddressStr, 16);
