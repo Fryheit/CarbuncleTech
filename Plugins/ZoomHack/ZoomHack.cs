@@ -55,13 +55,17 @@
                 var xPathNavigator = xPathDocument.CreateNavigator();
 
                 var structAddressStr = xPathNavigator.SelectSingleNode(@"/Root/DX11/StructureAddress")?.Value;
+                var zoomMaxStr = xPathNavigator.SelectSingleNode(@"/Root/DX11/ZoomMax")?.Value;
 
 #if RB_CN
                 Logger.Log(Name, $@"INT Address: {structAddressStr}", LogColor);
+                Logger.Log(Name, $@"INT zoomMax: {zoomMaxStr}", LogColor);
                 structAddressStr = "1BF9B20";
+                zoomMaxStr = "120";
+
                 Logger.Log(Name, $@"Update CN Address: {structAddressStr}", LogColor);
+                Logger.Log(Name, $@"Update CN zoomMax: {zoomMaxStr}", LogColor);
 #endif
-                var zoomMaxStr = xPathNavigator.SelectSingleNode(@"/Root/DX11/ZoomMax")?.Value;
 
                 _structAddress = Convert.ToInt32(structAddressStr, 16);
                 if (_structAddress > 0)
