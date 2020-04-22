@@ -12,12 +12,19 @@
     public class SeleCR : BotPlugin
     {
         #region Plugin Metadata
+
+#if RB_CN
+        public override string Name => "职业战斗模块选择";
+        public override string ButtonText => "设置";
+#else
+        public override string Name => "SeleCR";
+        public override string ButtonText => "Configure";
+#endif
+
         public override string Author => "Freiheit";
         public override Version Version => new Version(0, 0, 0, 1);
-        public override string Name => "SeleCR";
         public override string Description => "Automatically select a combat routine";
         public override bool WantButton => true;
-        public override string ButtonText => "Configure";
         #endregion
 
         private SettingsWindow _settingsWindow;
