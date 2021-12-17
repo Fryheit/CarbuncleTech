@@ -84,7 +84,15 @@ namespace CarbuncleTech.Plugins.SeleCR.Models
         [DefaultValue("")]
         public string GunbreakerRoutine { get; set; }
 
-		public Scenario()
+        [Setting]
+        [DefaultValue("")]
+        public string ReaperRoutine { get; set; }
+
+        [Setting]
+        [DefaultValue("")]
+        public string SageRoutine { get; set; }
+
+        public Scenario()
 		{
 
 		}

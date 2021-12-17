@@ -28,7 +28,7 @@
         private static void SetGameTitle(bool customTitle = true)
         {
             var mainWindowHdl = Core.Memory.Process.MainWindowHandle;
-            var title = customTitle ? $@"{OriginalTitle} - {Core.Me.Name}" : OriginalTitle;
+            var title = customTitle ? $@"{OriginalTitle} - {Core.Me.Name} {Core.Memory.Process.Id}" : OriginalTitle;
             
             SendMessage(mainWindowHdl, WM_SETTEXT, IntPtr.Zero, title);
         }
