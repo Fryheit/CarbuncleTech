@@ -37,7 +37,7 @@
         [DefaultValue(false)]
         public bool AutoSelectPvp { get; set; }
 
-        public Settings() : base(CharacterSettingsDirectory + "/CarbuncleTech/SeleCR.json")
+        public Settings() : base(SettingsPath + "/CarbuncleTech/SeleCR.json")
         { }
 
         [JsonIgnore]
