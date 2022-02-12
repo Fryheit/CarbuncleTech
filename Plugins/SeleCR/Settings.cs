@@ -37,7 +37,7 @@
         [DefaultValue(false)]
         public bool AutoSelectPvp { get; set; }
 
-        public Settings() : base(CharacterSettingsDirectory + "/CarbuncleTech/SeleCR.json")
+        public Settings() : base(SettingsPath + "/CarbuncleTech/SeleCR.json")
         { }
 
         [JsonIgnore]
@@ -416,7 +416,43 @@
                             return Pvp.GunbreakerRoutine;
                     }
                     break;
+                
+                case ClassJobType.Reaper:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.ReaperRoutine;
 
+                        if (AutoSelectPve)
+                            return Pve.ReaperRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.ReaperRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.ReaperRoutine;
+                    }
+                    break;
+                case ClassJobType.Sage:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.SageRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.SageRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.SageRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.SageRoutine;
+                    }
+                    break;
                 default:
                     return "";
             }
