@@ -37,7 +37,7 @@
         [DefaultValue(false)]
         public bool AutoSelectPvp { get; set; }
 
-        public Settings() : base(CharacterSettingsDirectory + "/CarbuncleTech/SeleCR.json")
+        public Settings() : base(SettingsPath + "/CarbuncleTech/SeleCR.json")
         { }
 
         [JsonIgnore]
@@ -416,6 +416,86 @@
                             return Pvp.GunbreakerRoutine;
                     }
                     break;
+                
+                case ClassJobType.Reaper:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.ReaperRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.ReaperRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.ReaperRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.ReaperRoutine;
+                    }
+                    break;
+                case ClassJobType.Sage:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.SageRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.SageRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.SageRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.SageRoutine;
+                    }
+                    break;
+
+                case ClassJobType.Viper:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.ViperRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.ViperRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.ViperRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.ViperRoutine;
+                    }
+                    break;
+
+                case ClassJobType.Pictomancer:
+                    if (WorldManager.InPvP)
+                    {
+                        if (AutoSelectPvp)
+                            return Pvp.PictomancerRoutine;
+
+                        if (AutoSelectPve)
+                            return Pve.PictomancerRoutine;
+                    }
+                    else
+                    {
+                        if (AutoSelectPve)
+                            return Pve.PictomancerRoutine;
+
+                        if (AutoSelectPvp)
+                            return Pvp.PictomancerRoutine;
+                    }
+                    break;
+
+        #if !RB_TC
+                case ClassJobType.BeastMaster:
+                    return Pve.BeastmasterRoutine;
+        #endif
 
                 default:
                     return "";

@@ -20,22 +20,13 @@
         public override string ButtonText => "Configure";
         #endregion
 
-        private SettingsWindow _settingsWindow;
         private readonly Color LogColor = Color.FromRgb(215, 40, 200);
         private bool _inPvpArea;
         private WaitTimer _pulseTimer;
 
         public override void OnButtonPress()
         {
-            if (_settingsWindow == null || _settingsWindow.IsDisposed)
-            {
-                _settingsWindow = new SettingsWindow();
-                _settingsWindow.Show();
-            }
-            else
-            {
-                _settingsWindow.BringToFront();
-            }
+            SettingsWindow.Show();
         }
 
         public override void OnPulse()
